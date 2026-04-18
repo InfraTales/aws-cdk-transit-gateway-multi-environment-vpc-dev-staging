@@ -1,0 +1,9 @@
+sequenceDiagram
+    User->>Aurora: Request
+    Aurora->>ECS: Request
+    ECS->>SM: Request
+    SM->>VPC: Request
+    VPC-->>SM: Response
+    SM-->>ECS: Response
+    ECS-->>Aurora: Response
+    Aurora-->>User: Response
