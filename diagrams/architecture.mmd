@@ -1,0 +1,17 @@
+graph TD
+    subgraph AWS["AWS Cloud"]
+        ECS[ECS Fargate]
+        SM[Secrets Manager]
+        VPC[VPC]
+        TGW[Transit Gateway]
+        ALB[ALB]
+        ECR[(ECR)]
+    end
+
+    Aurora --> ECS
+    ECS --> SM
+    SM --> VPC
+    VPC --> TGW
+    TGW --> ALB
+    ALB --> ECR
+    SM -.->|metrics| CW[CloudWatch]
